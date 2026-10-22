@@ -6,7 +6,7 @@ This is the website of the Rensselaer chapter of Upsilon Pi Epsilon (UPE). It is
 
 All chapter facts live in YAML files in `src/_data/`. To update the site, edit one file and rebuild. You do not need to edit HTML for routine changes.
 
-The site has no JavaScript, no web fonts, and no requests to other servers. You need no special tools or paid services to maintain it. A laptop with Bun and git is enough.
+The site has no web fonts and no requests to other servers. Its only JavaScript is a five-line script in the page footer that checks the date. You need no special tools or paid services to maintain it. A laptop with Bun and git is enough.
 
 ## Make a semester update, step by step
 
@@ -62,8 +62,8 @@ Some notes:
 
 - Write dates as `YYYY-MM-DD`.
 - Set a name or chair to `null` when you do not know it. The page shows "To be announced".
-- `verified` is the date someone last confirmed the facts in that file. When it is more than a year old, the page shows a "Last confirmed" notice. Update it whenever you check the file, even if nothing changed.
-- The site decides on each build which events are upcoming and whether the membership application is open. Nobody has to move events or toggle a flag. Rebuild and deploy after the date passes so the live site catches up.
+- `verified` is the date someone last confirmed the facts in that file. When it is more than a year old, the page shows a "Last confirmed" notice. This one check happens at build time only, so the notice appears on the first rebuild after the year passes. Update it whenever you check the file, even if nothing changed.
+- Nobody has to move events or toggle a flag. The build sorts events into upcoming and past and decides whether the membership application is open, and the small script in the footer checks the date again in the visitor's browser. So when a deadline passes, visitors see the application as closed even if nobody has rebuilt. The script only hides and shows what the build produced. A rebuild is still what moves a passed event into the year archive and what posts the next term's text, and until then a passed event simply disappears from the upcoming list, even if later events are in the data. Put a calendar reminder on the day after each deadline to rebuild and deploy.
 - Mark I/O talks with `kind: io`.
 - Resize a photo before you add it, so the long edge is at most 800 pixels and the file is under about 150 KB. The grid never shows a photo larger than that. Any image editor can do this. On a Mac, run `sips -Z 800 -s format jpeg -s formatOptions 75 in.jpg --out src/assets/img/photos/out.jpg`, and get the size for `width` and `height` with `sips -g pixelWidth -g pixelHeight out.jpg`. On other systems, read the size from the image's file properties.
 
@@ -124,11 +124,11 @@ The site follows the Rensselaer Web Accessibility Standards policy, which requir
 ## What changed from the old site
 
 - The site is now built from data files. Officers, events, and the membership status no longer need HTML edits.
-- Events move to the archive automatically after their date. The membership call to action closes automatically after the deadline.
+- The membership call to action closes by itself after the deadline, in the visitor's browser. Events move to the archive on the next build after their date.
 - Old events and the I/O talk list are merged into one events page. Links to dead sites (`npcompete.io`, `aicomp.io`, closed forms, and PDF applications) are removed.
 - Photos are resized, have alt text, and load lazily. The originals totaled 32 MB.
 - Committee descriptions are rewritten in plain, gender-neutral language. The Rules committee, which the old site had hidden, is not listed.
-- jQuery, Bootstrap, tooltips, and the photo carousel are gone. The site uses no JavaScript.
+- jQuery, Bootstrap, tooltips, and the photo carousel are gone. The only JavaScript is the date check in the footer.
 - These pages were dropped on purpose:
   - Projects. The list dated from about 2012.
   - Portfolios. The member names were out of date.

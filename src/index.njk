@@ -3,7 +3,8 @@ layout: base.njk
 title: Home
 ---
 {% import "macros.njk" as m with context %}
-{% set next = (events.events | upcoming(build.today))[0] %}
+{% set upcoming = events.events | upcoming(build.today) %}
+{% set next = upcoming[0] %}
 <div class="hero">
   <p class="eyebrow">{{ chapter.institution }} chapter</p>
   <h1 class="wordmark">Upsilon Pi Epsilon</h1>
@@ -26,10 +27,9 @@ title: Home
   <section class="card" aria-labelledby="card-events">
     <h2 id="card-events">Events</h2>
     {% if next %}
-    <p>Next: <strong>{{ next.title }}</strong>, <time datetime="{{ next.date }}">{{ next.date | longDate }}</time>{% if next.location %}, {{ next.location }}{% endif %}.</p>
-    {% else %}
-    <p class="tba-block">No upcoming events posted yet.</p>
+    <p data-show-until="{{ next.date }}">Next: <strong>{{ next.title }}</strong>, <time datetime="{{ next.date }}">{{ next.date | longDate }}</time>{% if next.location %}, {{ next.location }}{% endif %}.</p>
     {% endif %}
+    <p class="tba-block"{% if next %} data-show-after="{{ (upcoming | last).date }}" hidden{% endif %}>No upcoming events posted yet.</p>
     <p><a href="{{ '/events/' | url }}">All events and I/O talks</a></p>
   </section>
 </div>

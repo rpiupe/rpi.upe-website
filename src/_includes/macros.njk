@@ -11,18 +11,19 @@
 {%- endmacro %}
 
 {% macro membershipStatus() -%}
-{% if membership.deadline and membership.deadline >= build.today %}
-<p>Applications for {{ membership.term }} are open until {{ membership.deadline | longDate }}.</p>
-<p><a class="button" href="{{ membership.application_url }}">Apply to join UPE (opens a Google Form)</a></p>
-{% elif membership.deadline %}
-<p class="tba-block">The {{ membership.term }} application closed on {{ membership.deadline | longDate }}. The next cycle will be announced here.</p>
+{% if membership.deadline %}
+<div data-show-until="{{ membership.deadline }}"{% if membership.deadline < build.today %} hidden{% endif %}>
+  <p>Applications for {{ membership.term }} are open until {{ membership.deadline | longDate }}.</p>
+  <p><a class="button" href="{{ membership.application_url }}">Apply to join UPE (opens a Google Form)</a></p>
+</div>
+<p class="tba-block" data-show-after="{{ membership.deadline }}"{% if membership.deadline >= build.today %} hidden{% endif %}>The {{ membership.term }} application closed on {{ membership.deadline | longDate }}. The next cycle will be announced here.</p>
 {% else %}
 <p class="tba-block">The next application cycle will be announced here.</p>
 {% endif %}
 {%- endmacro %}
 
-{% macro event(e, headingLevel) -%}
-<article class="event">
+{% macro event(e, headingLevel, hideAfterDate) -%}
+<article class="event"{% if hideAfterDate %} data-show-until="{{ e.date }}"{% endif %}>
   <h{{ headingLevel }}>{{ e.title }}</h{{ headingLevel }}>
   <p class="event-meta"><time datetime="{{ e.date }}">{{ e.date | longDate }}</time>{% if e.time %}, {{ e.time }}{% endif %}{% if e.location %}, {{ e.location }}{% endif %}{% if e.kind == "io" %} <span class="tag">I/O talk</span>{% endif %}</p>
   <p>{{ e.description }}</p>

@@ -98,6 +98,7 @@ main:focus { outline: none; }
 }
 .button:hover { background: var(--red-dark); color: var(--paper); }
 
+[hidden] { display: none !important; }
 .tba { display: inline-block; padding: 0 0.4rem; background: var(--placeholder); color: var(--muted); font-style: italic; font-weight: 400; border: 1px dashed var(--muted); }
 .tba-block { padding: 0.6rem 0.8rem; background: var(--placeholder); color: var(--muted); border: 1px dashed var(--muted); }
 .tba-block a { color: var(--red-dark); }
