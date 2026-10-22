@@ -1,0 +1,142 @@
+/* Every color pair here is listed in scripts/contrast.mjs. Run `node scripts/contrast.mjs` after changing one. */
+:root {
+  --ink: #1b1b1f;
+  --muted: #54585a;
+  --red: #d6001c;
+  --red-dark: #ab2328;
+  --gold: #8a6d1e;
+  --gold-light: #d9b65b;
+  --paper: #ffffff;
+  --notice: #f7f3e8;
+  --placeholder: #f4f4f5;
+  --footer-text: #f2f2f2;
+  --footer-muted: #c9cbcc;
+  --focus: var(--ink);
+  --serif: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --measure: 70ch;
+  --space: clamp(1rem, 0.75rem + 1vw, 1.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .wordmark, .brand-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); margin: 2.5rem 0 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--red); }
+h3 { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem); margin: 1.5rem 0 0.25rem; }
+
+p, ul, ol, dl { margin: 0 0 1rem; }
+img { max-width: 100%; height: auto; }
+
+a { color: var(--red); text-underline-offset: 0.15em; }
+a:hover { color: var(--red-dark); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.wrap { max-width: calc(var(--measure) + 2 * var(--space)); margin: 0 auto; padding: 0 var(--space); }
+main.wrap { padding-top: var(--space); padding-bottom: 3rem; }
+main:focus { outline: none; }
+
+.skip-link {
+  position: absolute;
+  left: var(--space);
+  top: -100px;
+  padding: 0.5rem 1rem;
+  background: var(--paper);
+  color: var(--red);
+  z-index: 1;
+}
+.skip-link:focus { top: 0.5rem; }
+
+.site-header { border-bottom: 3px solid var(--red); }
+.site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.5rem; padding-top: 1rem; padding-bottom: 0.75rem; }
+.brand { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none; }
+.brand-text { display: flex; flex-direction: column; }
+.brand-name { font-size: 1.25rem; }
+.brand-sub { font-size: 0.85rem; color: var(--muted); }
+
+.nav { display: flex; flex-wrap: wrap; gap: 0 1rem; list-style: none; margin: 0; padding: 0; }
+.nav a { display: inline-block; padding: 0.4rem 0; min-height: 24px; color: var(--ink); text-decoration: none; border-bottom: 2px solid transparent; }
+.nav a:hover { color: var(--red-dark); border-bottom-color: currentColor; }
+.nav a[aria-current="page"] { color: var(--red); font-weight: 600; border-bottom-color: var(--red); }
+
+.hero { margin: 1.5rem 0 2rem; }
+.eyebrow { margin: 0 0 0.25rem; color: var(--gold); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.wordmark { font-size: clamp(2.5rem, 1.6rem + 4.5vw, 4.25rem); letter-spacing: 0.02em; margin-bottom: 0.5rem; }
+.lede { font-family: var(--serif); font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem); color: var(--muted); }
+
+.cards { display: grid; gap: var(--space); margin: 2rem 0; }
+@media (min-width: 46rem) { .cards { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); } }
+.card { border-top: 3px solid var(--red); padding-top: 0.75rem; }
+.card h2, .card h3 { margin-top: 0; padding-top: 0; border-top: 0; }
+.greek { margin: 0; color: var(--gold); font-family: var(--serif); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em; }
+.officer-name { font-weight: 600; }
+
+.button {
+  display: inline-block;
+  padding: 0.65rem 1.1rem;
+  background: var(--red);
+  color: var(--paper);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.button:hover { background: var(--red-dark); color: var(--paper); }
+
+.tba { display: inline-block; padding: 0 0.4rem; background: var(--placeholder); color: var(--muted); font-style: italic; font-weight: 400; border: 1px dashed var(--muted); }
+.tba-block { padding: 0.6rem 0.8rem; background: var(--placeholder); color: var(--muted); border: 1px dashed var(--muted); }
+.tba-block a { color: var(--red-dark); }
+
+.notice { padding: 0.5rem 0.8rem; background: var(--notice); border-left: 3px solid var(--gold); font-size: 0.9rem; color: var(--ink); }
+.notice a { color: var(--red-dark); }
+
+.inline-list { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; padding: 0; }
+.inline-list a, .footer-links a { display: inline-block; padding: 0.2rem 0; min-height: 24px; }
+
+.award-list { list-style: none; padding: 0; }
+.award-year { display: inline-block; min-width: 3.5rem; color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.committees > div { padding: 0.75rem 0; border-bottom: 1px solid var(--muted); }
+.committees dt { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; }
+.committees dd { margin: 0.25rem 0 0; }
+.chair { color: var(--muted); }
+
+.event { margin-bottom: 1.25rem; }
+.event h3 { margin-bottom: 0.1rem; }
+.event p { margin-bottom: 0.25rem; }
+.event-meta { color: var(--muted); font-size: 0.95rem; }
+.tag { display: inline-block; margin-left: 0.25rem; padding: 0 0.4rem; border: 1px solid var(--gold); color: var(--gold); font-size: 0.8rem; font-weight: 600; }
+
+details { border-top: 1px solid var(--muted); padding: 0.5rem 0; }
+details:last-of-type { border-bottom: 1px solid var(--muted); }
+summary { cursor: pointer; padding: 0.25rem 0; font-family: var(--serif); font-size: 1.2rem; font-weight: 600; }
+
+.photo-grid { display: grid; gap: var(--space); grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); list-style: none; padding: 0; }
+.photo-grid figure { margin: 0; }
+.photo-grid img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.photo-grid figcaption { margin-top: 0.4rem; font-size: 0.9rem; color: var(--muted); }
+
+.site-footer { --focus: var(--gold-light); background: var(--ink); color: var(--footer-text); border-top: 3px solid var(--gold-light); padding: 2rem 0; font-size: 0.95rem; }
+.site-footer a { color: var(--footer-text); }
+.site-footer a:hover { color: var(--gold-light); }
+.footer-name { font-family: var(--serif); font-size: 1.15rem; color: var(--gold-light); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; padding: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
