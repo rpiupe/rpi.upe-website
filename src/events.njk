@@ -1,0 +1,28 @@
+---
+layout: base.njk
+title: Events
+---
+{% import "macros.njk" as m with context %}
+{% set upcoming = events.events | upcoming(build.today) %}
+<h1>Events</h1>
+<p>The chapter runs events for Rensselaer students throughout the year.</p>
+<p><strong>Chapter meetings.</strong> {{ chapter.meeting.when }}, in {{ chapter.meeting.where }}. Meetings are open to everyone.</p>
+{{ m.stale(chapter.meeting.verified) }}
+
+<h2>Upcoming events</h2>
+{% if upcoming.length %}
+  {% for e in upcoming %}{{ m.event(e, 3) }}{% endfor %}
+{% else %}
+<p class="tba-block">No upcoming events posted yet. Follow the chapter on <a href="{{ chapter.social.instagram }}">Instagram</a> for announcements.</p>
+{% endif %}
+
+<h2>The I/O talk series</h2>
+<p>An I/O is a talk that introduces students to a useful technology they might not meet in class. A speaker who knows the topic explains what it is, what problems it solves, and how to use it. Past I/O talks are marked in the archive below.</p>
+
+<h2>Past events</h2>
+{% for year, items in events.events | pastByYear(build.today) %}
+<details{% if loop.first %} open{% endif %}>
+  <summary>{{ year }} ({{ items.length }} event{% if items.length != 1 %}s{% endif %})</summary>
+  {% for e in items %}{{ m.event(e, 3) }}{% endfor %}
+</details>
+{% endfor %}
