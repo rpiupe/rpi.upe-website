@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "check": "node scripts/check-data.mjs",
-    "build": "node scripts/check-data.mjs && eleventy",
+    "build": "node scripts/check-data.mjs && eleventy && node scripts/check-links.mjs",
     "serve": "eleventy --serve"
   },
   "devDependencies": {
