@@ -8,11 +8,16 @@ meeting:
   when: Every other Wednesday, 4 to 5 pm
   where: Amos Eaton 117
   verified: 2024-10-22
+# Shown in the footer of every page and on the home page, in this order.
 social:
-  github: https://github.com/RPI-UPE
-  x: https://x.com/rpiupe
-  instagram: https://www.instagram.com/rpiupe
-  facebook: https://www.facebook.com/rpiupe
+  - label: Instagram
+    url: https://www.instagram.com/rpiupe
+  - label: GitHub
+    url: https://github.com/RPI-UPE
+  - label: X (formerly Twitter)
+    url: https://x.com/rpiupe
+  - label: Facebook
+    url: https://www.facebook.com/rpiupe
 documents:
   constitution: https://docs.google.com/document/d/1nAIUwrc775S3aasDMCTPlIw6TwBLQWY3KFRbA_2J_6o/pub
   bylaws: https://docs.google.com/document/d/1V-2Dxq_LZ3kv6fjULPVl_PiB6W6KOsg9kdaDX1959xU/pub
