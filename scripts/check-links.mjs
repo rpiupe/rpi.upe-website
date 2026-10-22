@@ -12,9 +12,10 @@ let checked = 0;
 for (const page of pages) {
   const html = readFileSync(join(site, page), "utf8");
   const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
-  for (const [, url] of html.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
+  for (const [, url] of html.matchAll(/\s(?:href|src)="([^"]*)"/g)) {
     if (/^(https:|mailto:)/.test(url)) continue;
     checked++;
+    if (url === "") { failures.push(`${page}: empty href or src`); continue; }
     if (url.startsWith("#")) {
       if (!ids.has(url.slice(1))) failures.push(`${page}: ${url} has no matching id`);
       continue;
