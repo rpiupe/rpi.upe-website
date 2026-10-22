@@ -43,9 +43,7 @@ title: Home
 <section aria-labelledby="follow-heading">
   <h2 id="follow-heading">Follow the chapter</h2>
   <ul class="inline-list">
-    <li><a href="{{ chapter.social.instagram }}">Instagram</a></li>
-    <li><a href="{{ chapter.social.github }}">GitHub</a></li>
-    <li><a href="{{ chapter.social.x }}">X (formerly Twitter)</a></li>
-    <li><a href="{{ chapter.social.facebook }}">Facebook</a></li>
+    {% for s in chapter.social %}<li><a href="{{ s.url }}">{{ s.label }}</a></li>
+    {% endfor %}
   </ul>
 </section>

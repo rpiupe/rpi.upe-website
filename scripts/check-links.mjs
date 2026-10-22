@@ -1,9 +1,10 @@
-// Run after `bun run build`. Every internal href/src must carry the /~upe/ prefix and resolve to a file in _site.
+// Run after the build. Every internal href/src must carry the path prefix and resolve to a file in the output directory.
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { config } from "../eleventy.config.js";
 
-const site = new URL("../_site/", import.meta.url).pathname;
-const prefix = "/~upe/";
+const site = new URL(`../${config.dir.output}/`, import.meta.url).pathname;
+const prefix = config.pathPrefix;
 const pages = readdirSync(site, { recursive: true }).filter((f) => f.endsWith(".html"));
 const failures = [];
 let checked = 0;

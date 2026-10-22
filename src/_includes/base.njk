@@ -39,11 +39,9 @@
   <footer class="site-footer">
     <div class="wrap">
       <p class="footer-name">{{ chapter.name }}</p>
-      <ul class="footer-links">
-        <li><a href="{{ chapter.social.github }}">GitHub</a></li>
-        <li><a href="{{ chapter.social.instagram }}">Instagram</a></li>
-        <li><a href="{{ chapter.social.x }}">X</a></li>
-        <li><a href="{{ chapter.social.facebook }}">Facebook</a></li>
+      <ul class="inline-list">
+        {% for s in chapter.social %}<li><a href="{{ s.url }}">{{ s.label }}</a></li>
+        {% endfor %}
       </ul>
       <p>Something wrong or out of date? {{ m.contact(true) }}.</p>
       <p><a href="https://info.rpi.edu/statement-of-accessibility">Rensselaer Statement of Accessibility</a></p>

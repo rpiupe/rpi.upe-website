@@ -1,4 +1,4 @@
-/* Every color pair here is listed in scripts/contrast.mjs. Run `node scripts/contrast.mjs` after changing one. */
+/* scripts/contrast.mjs reads these colors and checks every pair the site uses. It runs in `npm run check`. */
 :root {
   --ink: #1b1b1f;
   --muted: #54585a;
@@ -106,7 +106,7 @@ main:focus { outline: none; }
 .notice a { color: var(--red-dark); }
 
 .inline-list { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; padding: 0; }
-.inline-list a, .footer-links a { display: inline-block; padding: 0.2rem 0; min-height: 24px; }
+.inline-list a { display: inline-block; padding: 0.2rem 0; min-height: 24px; }
 
 .award-list { list-style: none; padding: 0; }
 .award-year { display: inline-block; min-width: 3.5rem; color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; }
@@ -135,8 +135,3 @@ summary { cursor: pointer; padding: 0.25rem 0; font-family: var(--serif); font-s
 .site-footer a { color: var(--footer-text); }
 .site-footer a:hover { color: var(--gold-light); }
 .footer-name { font-family: var(--serif); font-size: 1.15rem; color: var(--gold-light); }
-.footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; list-style: none; padding: 0; }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
-}

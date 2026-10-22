@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node scripts/check-data.mjs",
-    "build": "node scripts/check-data.mjs && eleventy && node scripts/check-links.mjs",
+    "check": "node scripts/check-data.mjs && node scripts/contrast.mjs",
+    "build": "npm run check && eleventy && node scripts/check-links.mjs",
     "serve": "eleventy --serve"
   },
   "devDependencies": {
