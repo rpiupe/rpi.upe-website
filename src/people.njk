@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Officers and committees
+---
+{% import "macros.njk" as m with context %}
+<h1>Officers and committees</h1>
+<p>The chapter has three officers, named for the letters of the society. Upsilon leads the chapter and oversees all committees. Pi oversees events and membership. Epsilon oversees finance and publicity.</p>
+
+<h2>Officers</h2>
+{{ m.stale(officers.verified) }}
+<div class="cards">
+  {% for o in officers.officers %}
+  <section class="card officer" aria-labelledby="officer-{{ o.greek | lower }}">
+    <p class="greek">{{ o.greek }}</p>
+    <h3 id="officer-{{ o.greek | lower }}">{{ o.title }}</h3>
+    <p class="officer-name">{{ m.tba(o.name) }}</p>
+    <p>{{ o.description }}</p>
+  </section>
+  {% endfor %}
+</div>
+
+<h2>Committees</h2>
+{{ m.stale(committees.verified) }}
+<dl class="committees">
+  {% for c in committees.committees %}
+  <div>
+    <dt>{{ c.name }}</dt>
+    <dd class="chair">Chair: {{ m.tba(c.chair) }}</dd>
+    <dd>{{ c.description }}</dd>
+  </div>
+  {% endfor %}
+</dl>

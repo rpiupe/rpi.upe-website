@@ -1,0 +1,51 @@
+---
+layout: base.njk
+title: Home
+---
+{% import "macros.njk" as m with context %}
+{% set next = (events.events | upcoming(build.today))[0] %}
+<div class="hero">
+  <p class="eyebrow">{{ chapter.institution }} chapter</p>
+  <h1 class="wordmark">Upsilon Pi Epsilon</h1>
+  <p class="lede">{{ chapter.tagline }}.</p>
+</div>
+
+<p>Welcome to the Rensselaer chapter of Upsilon Pi Epsilon (UPE), the international honor society for the computing and information disciplines. Our members are undergraduate and graduate students in computer science, information technology, and computer engineering. Members are chosen for their academic record and for meeting the professional standards of the society. The chapter serves the Rensselaer community through tutoring and exam review sessions.</p>
+
+<div class="cards">
+  <section class="card" aria-labelledby="card-join">
+    <h2 id="card-join">Join</h2>
+    {{ m.membershipStatus() }}
+    <p><a href="{{ '/join/' | url }}">Membership requirements</a></p>
+  </section>
+  <section class="card" aria-labelledby="card-tutoring">
+    <h2 id="card-tutoring">Tutoring</h2>
+    <p>Get one-on-one help in your computing courses from a chapter member. Private tutoring costs {{ tutoring.rate }}.</p>
+    <p><a href="{{ '/tutoring/' | url }}">How tutoring works</a></p>
+  </section>
+  <section class="card" aria-labelledby="card-events">
+    <h2 id="card-events">Events</h2>
+    {% if next %}
+    <p>Next: <strong>{{ next.title }}</strong>, <time datetime="{{ next.date }}">{{ next.date | longDate }}</time>{% if next.location %}, {{ next.location }}{% endif %}.</p>
+    {% else %}
+    <p class="tba-block">No upcoming events posted yet.</p>
+    {% endif %}
+    <p><a href="{{ '/events/' | url }}">All events and I/O talks</a></p>
+  </section>
+</div>
+
+<section class="meeting" aria-labelledby="meeting-heading">
+  <h2 id="meeting-heading">Chapter meetings</h2>
+  <p>{{ chapter.meeting.when }}, in {{ chapter.meeting.where }}. Meetings are open to everyone.</p>
+  {{ m.stale(chapter.meeting.verified) }}
+</section>
+
+<section aria-labelledby="follow-heading">
+  <h2 id="follow-heading">Follow the chapter</h2>
+  <ul class="inline-list">
+    <li><a href="{{ chapter.social.instagram }}">Instagram</a></li>
+    <li><a href="{{ chapter.social.github }}">GitHub</a></li>
+    <li><a href="{{ chapter.social.x }}">X (formerly Twitter)</a></li>
+    <li><a href="{{ chapter.social.facebook }}">Facebook</a></li>
+  </ul>
+</section>

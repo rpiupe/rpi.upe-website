@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Tutoring
+---
+{% import "macros.njk" as m with context %}
+<h1>Tutoring</h1>
+<p>Chapter members tutor Rensselaer students in computing courses. The chapter also runs review sessions before CS1 and Data Structures exams.</p>
+
+<h2>Request a private tutor</h2>
+<ol>
+  <li>Fill out the <a href="{{ tutoring.form_url }}">tutoring request form (opens a Google Form)</a>.</li>
+  <li>The chapter will get back to you in {{ tutoring.response_time }}.</li>
+  <li>Private tutoring costs {{ tutoring.rate }}.</li>
+</ol>
+{{ m.stale(tutoring.verified) }}
