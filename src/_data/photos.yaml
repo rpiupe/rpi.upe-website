@@ -3,98 +3,98 @@
 # Set alt_needs_review to false once someone who was there has checked the alt text.
 photos:
   - file: ds-review-spring-2020.jpg
-    width: 1600
-    height: 1200
+    width: 800
+    height: 600
     alt: A student speaks at a lectern in front of a projected slide during a Data Structures exam review session.
     caption: Data Structures exam review, Spring 2020
     alt_needs_review: true
   - file: machine-learning-io-fall-2016.jpg
-    width: 1600
-    height: 1200
+    width: 800
+    height: 600
     alt: Students in a classroom watch a speaker present slides at a machine learning I/O talk.
     caption: Machine learning I/O talk, Fall 2016
     alt_needs_review: true
   - file: pi-day-2015.jpg
-    width: 1600
-    height: 900
+    width: 800
+    height: 450
     alt: Two chapter members in maroon UPE shirts set out plates of pie on a table by a window.
     caption: Pie sale for Pi Day at Genericon, March 2015
     alt_needs_review: true
   - file: progcomp-spring-2015.jpg
-    width: 960
-    height: 540
+    width: 800
+    height: 450
     alt: Students with laptops and headphones work at round tables during the Spring 2015 Programming Competition.
     caption: Spring 2015 Programming Competition. More than 50 students took part.
     alt_needs_review: true
   - file: progcomp-spring-2015-prizes.jpg
-    width: 960
-    height: 540
+    width: 800
+    height: 450
     alt: Winners of the Spring 2015 Programming Competition pick prizes from a table at the front of the room.
     caption: Winners choose their prizes, Spring 2015
     alt_needs_review: true
   - file: inductees-fall-2014.jpg
-    width: 1600
-    height: 900
+    width: 800
+    height: 450
     alt: New members stand in two rows for a group photo in a wood-paneled room.
     caption: Fall 2014 inductees
     alt_needs_review: true
   - file: student-professor-dinner-fall-2014.jpg
-    width: 1600
-    height: 900
+    width: 800
+    height: 450
     alt: Students and professors sit around a round restaurant table with plates of food.
     caption: Student and Professor Dinner, Fall 2014
     alt_needs_review: true
   - file: progcomp-fall-2012-prizes.jpg
-    width: 1600
-    height: 957
+    width: 800
+    height: 479
     alt: A table stacked with boxed prizes, including a Dell computer, a Samsung home theater system, and a PlayStation 3 game.
     caption: Prizes for the Fall 2012 Programming Competition
     alt_needs_review: true
   - file: progcomp-fall-2012-winners.jpg
-    width: 1600
-    height: 900
+    width: 800
+    height: 450
     alt: Prize winners stand in two rows for a group photo after the Fall 2012 Programming Competition.
     caption: Fall 2012 Programming Competition winners
     alt_needs_review: true
   - file: ossfest-2012-yacs-poster.jpg
-    width: 1600
-    height: 957
+    width: 800
+    height: 479
     alt: A student talks with a visitor in front of a poster for YACS, an open source course scheduler.
     caption: Open Source Software Festival, Fall 2012
     alt_needs_review: true
   - file: ossfest-2012-posters.jpg
-    width: 1600
-    height: 957
+    width: 800
+    height: 479
     alt: Visitors walk past a row of project posters in a hall with tall round windows.
     caption: The poster session at the Open Source Software Festival, Fall 2012
     alt_needs_review: true
   - file: programming-competition.jpg
-    width: 1600
-    height: 900
+    width: 800
+    height: 450
     alt: A large room full of students working on laptops at round tables during a programming competition.
     caption: Programming Competition
     alt_needs_review: true
   - file: upe-workspace-group.jpg
-    width: 1600
-    height: 1067
+    width: 800
+    height: 534
     alt: A large group of members, several in maroon UPE shirts, pose under a banner that reads UPE Workspace, sponsored by TripAdvisor.
     caption: Members in the UPE Workspace
     alt_needs_review: true
   - file: general-meeting.jpg
-    width: 1600
-    height: 900
+    width: 800
+    height: 450
     alt: Members crowd around a laptop on a table during a general body meeting.
     caption: General body meeting
     alt_needs_review: true
   - file: bftad-tutoring.jpg
-    width: 1600
-    height: 1553
+    width: 800
+    height: 777
     alt: Two chapter members in maroon UPE shirts help young students at a row of computers.
     caption: Teaching programming at Black Family Technology Awareness Day
     alt_needs_review: true
   - file: bftad-logo-workshop.jpg
-    width: 1236
-    height: 1600
+    width: 618
+    height: 800
     alt: Three chapter members in UPE shirts stand under a projected slide titled LOGO Simple Programming, Black Family Technology Awareness Day.
     caption: Leading a LOGO programming workshop at Black Family Technology Awareness Day
     alt_needs_review: true
