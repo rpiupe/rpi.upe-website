@@ -1,0 +1,29 @@
+verified: 2024-10-22
+committees:
+  - name: Web and IT
+    chair: null # Oct 2024: Dorian Bilelis
+    description: Updates this website and helps maintain the chapter's servers.
+  - name: Membership
+    chair: null # Oct 2024: Christopher Lo
+    description: Finds and recruits new members, reviews applications, and collects the documents each candidate needs.
+  - name: Events
+    chair: null
+    description: Plans and runs chapter events, including I/O talks and programming competitions.
+  - name: Programming Competition and Sponsorship
+    chair: null
+    description: Runs the programming competition. Writes the problems and asks companies to sponsor prizes.
+  - name: Tutoring
+    chair: null
+    description: Organizes the chapter's tutors and matches them with students. Also runs review sessions before CS1 and Data Structures exams.
+  - name: Finance
+    chair: null
+    description: Keeps the budget, collects dues, raises funds, and requests funding from the Computer Science department and other groups.
+  - name: Social
+    chair: null
+    description: Organizes social events for members.
+  - name: Alumni
+    chair: null
+    description: Writes the alumni newsletter and handles communication with alumni.
+  - name: Advertising
+    chair: null # Oct 2024: Aiden Crossfield
+    description: Makes posters and flyers for chapter events and helps with other design work.
