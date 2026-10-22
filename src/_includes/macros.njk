@@ -34,8 +34,8 @@ data-show-after="{{ date }}"{% if date >= build.today %} hidden{% endif %}
 {% endif %}
 {%- endmacro %}
 
-{% macro event(e, hideAfterDate) -%}
-<article class="event"{% if hideAfterDate %} {{ showUntil(e.date) }}{% endif %}>
+{% macro event(e, hideWhenPast) -%}
+<article class="event"{% if hideWhenPast %} {{ showUntil(e.date) }}{% endif %}>
   <h3>{{ e.title }}</h3>
   <p class="event-meta"><time datetime="{{ e.date }}">{{ e.date | longDate }}</time>{% if e.time %}, {{ e.time }}{% endif %}{% if e.location %}, {{ e.location }}{% endif %}{% if e.kind == "io" %} <span class="tag">I/O talk</span>{% endif %}</p>
   <p>{{ e.description }}</p>

@@ -6,7 +6,7 @@ This is the website of the Rensselaer chapter of Upsilon Pi Epsilon (UPE). It is
 
 All chapter facts live in YAML files in `src/_data/`. To update the site, edit one file and rebuild. You do not need to edit HTML for routine changes.
 
-The site has no web fonts and no requests to other servers. Its only JavaScript is a five-line script in the page footer that checks the date. You need no special tools or paid services to maintain it. A laptop with Bun and git is enough.
+The site has no web fonts and no requests to other servers. Its only JavaScript is a short script in the page footer that checks the date. You need no special tools or paid services to maintain it. A laptop with Bun and git is enough.
 
 ## Make a semester update, step by step
 

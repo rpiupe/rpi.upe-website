@@ -10,7 +10,7 @@ title: Events
 {{ m.stale(chapter.meeting.verified) }}
 
 <h2>Upcoming events</h2>
-{% for e in upcoming %}{{ m.event(e, true) }}{% endfor %}
+{% for e in upcoming %}{{ m.event(e, hideWhenPast=true) }}{% endfor %}
 <p class="tba-block"{% if upcoming.length %} {{ m.showAfter((upcoming | last).date) }}{% endif %}>No upcoming events posted yet. Announcements go out on the chapter's social accounts, linked in the footer.</p>
 
 <h2>The I/O talk series</h2>
