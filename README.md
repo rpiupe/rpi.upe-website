@@ -49,14 +49,14 @@ This is the whole routine for a new webmaster. It takes about fifteen minutes.
 | Add or remove a committee | `src/_data/committees.yaml` | a `committees` entry (`name`, `chair`, `description`) |
 | Meeting time or room | `src/_data/chapter.yaml` | `meeting.when`, `meeting.where`, `meeting.verified` |
 | Chapter contact email | `src/_data/chapter.yaml` | `email` |
-| Social media links | `src/_data/chapter.yaml` | `social` |
+| Social media links | `src/_data/chapter.yaml` | a `social` entry (`label`, `url`), in the order shown |
 | Constitution or by-laws link | `src/_data/chapter.yaml` | `documents` |
 | Open a membership application | `src/_data/membership.yaml` | `term`, `application_url`, `deadline`, `verified` |
 | Membership requirements | `src/_data/membership.yaml` | `requirements` |
-| Add an event | `src/_data/events.yaml` | a new entry at the top of `events` |
+| Add an event | `src/_data/events.yaml` | a new entry at the top of `events` (`date`, `title`, `description`; `location`, `time`, `link`, and `kind: io` are optional) |
 | Tutoring form, rate, or reply time | `src/_data/tutoring.yaml` | `form_url`, `rate`, `response_time`, `verified` |
 | Ingalls award recipients | `src/_data/awards.yaml` | an `ingalls` entry (`year`, `name`), then `verified` |
-| Add a photo | `src/_data/photos.yaml` and `src/assets/img/photos/` | a `photos` entry (`file`, `width`, `height`, `alt`, `caption`, `year`, `alt_needs_review`) |
+| Add a photo | `src/_data/photos.yaml` and `src/assets/img/photos/` | a `photos` entry (`file`, `width`, `height`, `alt`, `caption`, `alt_needs_review`) |
 
 Some notes:
 
@@ -65,7 +65,7 @@ Some notes:
 - `verified` is the date someone last confirmed the facts in that file. When it is more than a year old, the page shows a "Last confirmed" notice. Update it whenever you check the file, even if nothing changed.
 - The site decides on each build which events are upcoming and whether the membership application is open. Nobody has to move events or toggle a flag. Rebuild and deploy after the date passes so the live site catches up.
 - Mark I/O talks with `kind: io`.
-- Resize a photo before you add it, so the long edge is at most 1600 pixels and the file is under about 300 KB. Any image editor can do this. On a Mac, run `sips -Z 1600 -s format jpeg -s formatOptions 75 in.jpg --out src/assets/img/photos/out.jpg`, and get the size for `width` and `height` with `sips -g pixelWidth -g pixelHeight out.jpg`. On other systems, read the size from the image's file properties.
+- Resize a photo before you add it, so the long edge is at most 800 pixels and the file is under about 150 KB. The grid never shows a photo larger than that. Any image editor can do this. On a Mac, run `sips -Z 800 -s format jpeg -s formatOptions 75 in.jpg --out src/assets/img/photos/out.jpg`, and get the size for `width` and `height` with `sips -g pixelWidth -g pixelHeight out.jpg`. On other systems, read the size from the image's file properties.
 
 ## Change the words or the layout
 
@@ -79,18 +79,19 @@ The stylesheet is one file, `src/assets/site.css`. The colors are named once at 
 npm install     # once, after cloning
 npm run serve   # preview at http://localhost:8080/~upe/
 npm run build   # check the data, build into _site/, then check every internal link
-npm run check   # check the data files only
+npm run check   # check the data files and the color contrast only
 ```
 
-`npm run check` fails with a clear message when a required field is missing, a date is not valid, a photo has no alt text or no file, or the application link is not `https`. It warns when a `verified` date is more than a year old.
+`npm run check` fails with a clear message when a required field is missing, a date is not valid, or a photo has no alt text or no file. It warns when a `verified` date is more than a year old and while any photo still has `alt_needs_review: true`.
 
-If you change a color in `src/assets/site.css`, update the same pair in `scripts/contrast.mjs` and run `node scripts/contrast.mjs`. Every pair must pass.
+It also reads the colors from `src/assets/site.css` and checks every pair the site uses against the WCAG contrast minimum. If you change a color and a pair fails, the message names the pair.
 
 ## If a command fails
 
 - `error: src/_data/....yaml: missing required key "..."` or `is missing "..."`. A data entry lost a field. Every entry in a list needs every field, even if the value is `null`.
 - `error: ... is not a valid date`. Write the date as `YYYY-MM-DD` with the quotes left off, for example `2027-09-14`.
 - `error: ... needs alt text`. Fill in `alt` for the photo. Describe what the photo shows.
+- `FAIL <pair>: --a on --b is 3.9:1, needs 4.5:1`. A color change broke the contrast minimum. Pick a darker or lighter shade until the check passes.
 - `error: ... file ... does not exist`. The `file` name in `photos.yaml` does not match a file in `src/assets/img/photos/`. Check spelling and case.
 - `FAIL page: url does not resolve`. A link in a template points to a page or image that does not exist. This cannot come from a data file edit alone.
 - A YAML parse error with a line number. Look at that line for a missing colon, a mismatched indent, or a value with a colon in it. Wrap such a value in double quotes.
