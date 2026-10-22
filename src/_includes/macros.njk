@@ -10,21 +10,33 @@
 {% if value %}{{ value }}{% else %}<span class="tba">To be announced</span>{% endif %}
 {%- endmacro %}
 
+{#
+  showUntil and showAfter print the attributes that hide an element by date. The build decides with
+  today's date, and the footer script in base.njk decides again with the visitor's date.
+#}
+{% macro showUntil(date) -%}
+data-show-until="{{ date }}"{% if date < build.today %} hidden{% endif %}
+{%- endmacro %}
+
+{% macro showAfter(date) -%}
+data-show-after="{{ date }}"{% if date >= build.today %} hidden{% endif %}
+{%- endmacro %}
+
 {% macro membershipStatus() -%}
 {% if membership.deadline %}
-<div data-show-until="{{ membership.deadline }}"{% if membership.deadline < build.today %} hidden{% endif %}>
+<div {{ showUntil(membership.deadline) }}>
   <p>Applications for {{ membership.term }} are open until {{ membership.deadline | longDate }}.</p>
   <p><a class="button" href="{{ membership.application_url }}">Apply to join UPE (opens a Google Form)</a></p>
 </div>
-<p class="tba-block" data-show-after="{{ membership.deadline }}"{% if membership.deadline >= build.today %} hidden{% endif %}>The {{ membership.term }} application closed on {{ membership.deadline | longDate }}. The next cycle will be announced here.</p>
+<p class="tba-block" {{ showAfter(membership.deadline) }}>The {{ membership.term }} application closed on {{ membership.deadline | longDate }}. The next cycle will be announced here.</p>
 {% else %}
 <p class="tba-block">The next application cycle will be announced here.</p>
 {% endif %}
 {%- endmacro %}
 
-{% macro event(e, headingLevel, hideAfterDate) -%}
-<article class="event"{% if hideAfterDate %} data-show-until="{{ e.date }}"{% endif %}>
-  <h{{ headingLevel }}>{{ e.title }}</h{{ headingLevel }}>
+{% macro event(e, hideAfterDate) -%}
+<article class="event"{% if hideAfterDate %} {{ showUntil(e.date) }}{% endif %}>
+  <h3>{{ e.title }}</h3>
   <p class="event-meta"><time datetime="{{ e.date }}">{{ e.date | longDate }}</time>{% if e.time %}, {{ e.time }}{% endif %}{% if e.location %}, {{ e.location }}{% endif %}{% if e.kind == "io" %} <span class="tag">I/O talk</span>{% endif %}</p>
   <p>{{ e.description }}</p>
   {% if e.link %}<p><a href="{{ e.link }}">Details for {{ e.title }}</a></p>{% endif %}

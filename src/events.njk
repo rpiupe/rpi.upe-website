@@ -10,8 +10,8 @@ title: Events
 {{ m.stale(chapter.meeting.verified) }}
 
 <h2>Upcoming events</h2>
-{% for e in upcoming %}{{ m.event(e, 3, true) }}{% endfor %}
-<p class="tba-block"{% if upcoming.length %} data-show-after="{{ (upcoming | last).date }}" hidden{% endif %}>No upcoming events posted yet. Announcements go out on the chapter's social accounts, linked in the footer.</p>
+{% for e in upcoming %}{{ m.event(e, true) }}{% endfor %}
+<p class="tba-block"{% if upcoming.length %} {{ m.showAfter((upcoming | last).date) }}{% endif %}>No upcoming events posted yet. Announcements go out on the chapter's social accounts, linked in the footer.</p>
 
 <h2>The I/O talk series</h2>
 <p>An I/O is a talk that introduces students to a useful technology they might not meet in class. A speaker who knows the topic explains what it is, what problems it solves, and how to use it. Each talk also appears in the archive below with its description.</p>
@@ -24,6 +24,6 @@ title: Events
 {% for year, items in events.events | pastByYear(build.today) %}
 <details{% if loop.first %} open{% endif %}>
   <summary>{{ year }} ({{ items.length }} event{% if items.length != 1 %}s{% endif %})</summary>
-  {% for e in items %}{{ m.event(e, 3) }}{% endfor %}
+  {% for e in items %}{{ m.event(e) }}{% endfor %}
 </details>
 {% endfor %}
