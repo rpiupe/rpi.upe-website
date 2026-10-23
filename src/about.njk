@@ -26,7 +26,6 @@ title: About
   {% for a in awards.ingalls %}<li><span class="award-year">{{ a.year }}</span> {{ a.name }}</li>
   {% endfor %}
 </ul>
-<p class="tba-block">Recipients after {{ (awards.ingalls | last).year }} are not yet listed.</p>
 {{ m.stale(awards.verified) }}
 
 <h2>Governing documents</h2>

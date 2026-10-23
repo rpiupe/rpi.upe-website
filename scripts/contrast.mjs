@@ -24,6 +24,7 @@ const pairs = [
   ["notice secondary", "muted", "notice", 4.5],
   ["notice link", "red-dark", "notice", 4.5],
   ["placeholder text", "muted", "placeholder", 4.5],
+  ["placeholder link", "red-dark", "placeholder", 4.5],
   ["footer text", "footer-text", "ink", 4.5],
   ["footer secondary", "footer-muted", "ink", 4.5],
   ["footer gold", "gold-light", "ink", 4.5],
