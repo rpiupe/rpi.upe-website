@@ -6,19 +6,19 @@ This is the website of the Rensselaer chapter of Upsilon Pi Epsilon (UPE). It is
 
 All chapter facts live in YAML files in `src/_data/`. To update the site, edit one file and rebuild. You do not need to edit HTML for routine changes.
 
-The site has no JavaScript, no web fonts, and no requests to other servers. You need no special tools or paid services to maintain it. A laptop with Node.js and git is enough.
+The site has no JavaScript, no web fonts, and no requests to other servers. You need no special tools or paid services to maintain it. A laptop with Bun and git is enough.
 
 ## Make a semester update, step by step
 
 This is the whole routine for a new webmaster. It takes about fifteen minutes.
 
-1. Install [Node.js](https://nodejs.org/) 22 or later if you do not have it. It comes with `npm`. Check with `node --version`.
+1. Install [Bun](https://bun.sh/) if you do not have it. It is one command from that page. Check with `bun --version`.
 2. Clone the repository and install the two build tools:
 
    ```sh
    git clone <repository url> upe-site
    cd upe-site
-   npm install
+   bun install
    ```
 
 3. Make a branch for your change, for example `git switch -c fall-2027-officers`.
@@ -26,14 +26,14 @@ This is the whole routine for a new webmaster. It takes about fifteen minutes.
 5. Preview your change:
 
    ```sh
-   npm run serve
+   bun run serve
    ```
 
    Open `http://localhost:8080/~upe/` in a browser. The page reloads when you save a file. Press Ctrl+C to stop.
 6. Build and check:
 
    ```sh
-   npm run build
+   bun run build
    ```
 
    This checks the data files, builds the site into `_site/`, and checks every internal link. If it prints an error, see "If a command fails" below.
@@ -76,13 +76,13 @@ The stylesheet is one file, `src/assets/site.css`. The colors are named once at 
 ## Commands
 
 ```sh
-npm install     # once, after cloning
-npm run serve   # preview at http://localhost:8080/~upe/
-npm run build   # check the data, build into _site/, then check every internal link
-npm run check   # check the data files and the color contrast only
+bun install     # once, after cloning
+bun run serve   # preview at http://localhost:8080/~upe/
+bun run build   # check the data, build into _site/, then check every internal link
+bun run check   # check the data files and the color contrast only
 ```
 
-`npm run check` fails with a clear message when a required field is missing, a date is not valid, or a photo has no alt text or no file. It warns when a `verified` date is more than a year old and while any photo still has `alt_needs_review: true`.
+`bun run check` fails with a clear message when a required field is missing, a date is not valid, or a photo has no alt text or no file. It warns when a `verified` date is more than a year old and while any photo still has `alt_needs_review: true`.
 
 It also reads the colors from `src/assets/site.css` and checks every pair the site uses against the WCAG contrast minimum. If you change a color and a pair fails, the message names the pair.
 
@@ -95,14 +95,14 @@ It also reads the colors from `src/assets/site.css` and checks every pair the si
 - `error: ... file ... does not exist`. The `file` name in `photos.yaml` does not match a file in `src/assets/img/photos/`. Check spelling and case.
 - `FAIL page: url does not resolve`. A link in a template points to a page or image that does not exist. This cannot come from a data file edit alone.
 - A YAML parse error with a line number. Look at that line for a missing colon, a mismatched indent, or a value with a colon in it. Wrap such a value in double quotes.
-- `npm: command not found` or `node: command not found`. Node.js is not installed or not on your PATH. Install it from nodejs.org and open a new terminal.
+- `bun: command not found`. Bun is not installed or not on your PATH. Install it from bun.sh and open a new terminal.
 
 ## Deploy
 
 The built `_site/` folder is copied to the CS web root that serves `www.cs.rpi.edu/~upe/`. Confirm the exact copy method with the current webmaster. A typical command looks like this:
 
 ```sh
-npm run build
+bun run build
 rsync -av --delete _site/ USER@HOST:~/public_html/
 ```
 
@@ -119,7 +119,7 @@ The site follows the Rensselaer Web Accessibility Standards policy, which requir
 - Write link text that makes sense on its own. Do not use "click here" or "here". Say when a link opens a Google Form.
 - Do not convey information with color alone.
 - Keep the link to the Rensselaer Statement of Accessibility in the footer.
-- Run `npm run check`, then `npm run build`.
+- Run `bun run check`, then `bun run build`.
 
 ## What changed from the old site
 

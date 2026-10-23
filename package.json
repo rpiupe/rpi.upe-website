@@ -2,9 +2,6 @@
   "name": "upe-rpi-site",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": ">=22"
-  },
   "scripts": {
     "check": "bun scripts/check-data.mjs && bun scripts/contrast.mjs",
     "build": "bun run check && eleventy && bun scripts/check-links.mjs",
