@@ -82,7 +82,7 @@ bun run build   # check the data, build into _site/, then check every internal l
 bun run check   # check the data files and the color contrast only
 ```
 
-`bun run check` fails with a clear message when a required field is missing, a date is not valid, or a photo has no alt text or no file. It warns when a `verified` date is more than a year old and while any photo still has `alt_needs_review: true`.
+`bun run check` fails with a clear message when a required field is missing, a date is not valid, an event has a `kind` other than `io`, a photo has no alt text or no file, or a photo's `width` or `height` is not a whole number of pixels. It warns when a `verified` date is more than a year old and while any photo still has `alt_needs_review: true`.
 
 It also reads the colors from `src/assets/site.css` and checks every pair the site uses against the WCAG contrast minimum. If you change a color and a pair fails, the message names the pair.
 
