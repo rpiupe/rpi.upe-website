@@ -47,6 +47,11 @@ for (const [name, { keys, list, item }] of Object.entries(schema)) {
     }
   }
   checkDates(data, file);
+  if (name === "events") {
+    for (const [i, e] of (data.events ?? []).entries()) {
+      if ("kind" in e && e.kind !== "io") errors.push(`${file}: events[${i}] (${e.title}) has kind "${e.kind}". The only kind is io. Leave it out for other events.`);
+    }
+  }
   if (name === "chapter") {
     for (const key of ["when", "where", "verified"]) {
       if (!(key in (data.meeting ?? {}))) errors.push(`${file}: meeting is missing "${key}".`);
@@ -57,6 +62,9 @@ for (const [name, { keys, list, item }] of Object.entries(schema)) {
     for (const [i, p] of photos.entries()) {
       if (typeof p.alt !== "string" || !p.alt.trim()) errors.push(`${file}: photos[${i}] (${p.file}) needs alt text that describes the photo.`);
       if (!existsSync(new URL(String(p.file), photoDir))) errors.push(`${file}: photos[${i}] file src/assets/img/photos/${p.file} does not exist.`);
+      for (const side of ["width", "height"]) {
+        if (!Number.isInteger(p[side]) || p[side] <= 0) errors.push(`${file}: photos[${i}] (${p.file}) ${side} must be a whole number of pixels, not "${p[side]}".`);
+      }
     }
     const unreviewed = photos.filter((p) => p.alt_needs_review === true).length;
     if (unreviewed) warnings.push(`${file}: ${unreviewed} photo${unreviewed === 1 ? " has" : "s have"} alt text nobody has reviewed yet. Set alt_needs_review to false once someone who was there has read it.`);
