@@ -17,7 +17,11 @@ title: Events
 {% endif %}
 
 <h2>The I/O talk series</h2>
-<p>An I/O is a talk that introduces students to a useful technology they might not meet in class. A speaker who knows the topic explains what it is, what problems it solves, and how to use it. Past I/O talks are marked in the archive below.</p>
+<p>An I/O is a talk that introduces students to a useful technology they might not meet in class. A speaker who knows the topic explains what it is, what problems it solves, and how to use it. Each talk also appears in the archive below with its description.</p>
+<ul class="award-list">
+  {% for e in events.events | selectattr("kind") %}<li><span class="award-year">{{ e.date | monthYear }}</span> {{ e.title }}</li>
+  {% endfor %}
+</ul>
 
 <h2>Past events</h2>
 {% for year, items in events.events | pastByYear(build.today) %}
