@@ -26,7 +26,7 @@ title: Home
   <section class="card" aria-labelledby="card-events">
     <h2 id="card-events">Events</h2>
     {% for e in upcoming %}
-    <p {{ m.showUntil(e.date) }}><strong>{{ e.title }}</strong>, <time datetime="{{ e.date }}">{{ e.date | longDate }}</time>{% if e.location %}, {{ e.location }}{% endif %}.</p>
+    <p {{ m.showUntil(e.date) }}>Upcoming: <time datetime="{{ e.date }}">{{ e.date | longDate }}</time>, <strong>{{ e.title }}</strong>{% if e.location %}, {{ e.location }}{% endif %}.</p>
     {% endfor %}
     <p class="tba-block"{% if upcoming.length %} {{ m.showAfter((upcoming | last).date) }}{% endif %}>No upcoming events posted yet.</p>
     <p><a href="{{ '/events/' | url }}">All events and I/O talks</a></p>
