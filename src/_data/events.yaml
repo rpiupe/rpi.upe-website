@@ -1,0 +1,147 @@
+# Add new events at the top. Dates are YYYY-MM-DD. The site sorts events and moves past ones to the archive on each build.
+# kind: io marks a talk in the I/O series. location, time, and link are optional. Leave out what you do not know.
+events:
+  - date: 2019-03-13
+    title: New member application deadline
+    description: Last day to apply for membership this semester.
+  - date: 2018-11-13
+    title: UPE Smackdown
+    description: A follow-up to the Vim vs. Emacs Showdown from the previous semester.
+  - date: 2018-10-16
+    kind: io
+    title: "I/O: Preference Elicitation and Aggregation"
+    description: PhD candidate Zhibing Zhao talked about modeling cost-effective decision making, research done with his advisor, Professor Lirong Xia.
+    location: DCC 330
+    time: 6:00 pm
+  - date: 2018-04-11
+    title: New member application deadline
+    description: Applications were due by noon.
+  # Year inferred: the November 2018 Smackdown calls this showdown "last semester".
+  - date: 2018-04-09
+    title: Vim vs. Emacs Showdown
+    description: Professors Cutler and Goldschmidt faced off in a five-round text editor contest with no mouse allowed. A $1 raffle raised money for Girls Who Code.
+    location: DCC 337
+    time: 6:00 pm
+  # Year inferred from list position on the old site, after the 2017 NP Compete qualifiers.
+  - date: 2017-04-22
+    title: NP Compete Finals
+    description: The final round of the chapter's AI competition.
+  # Year inferred from list position on the old site, after the 2017 NP Compete qualifiers.
+  - date: 2017-04-15
+    title: NP Compete Semifinals
+    description: The semifinal round of the chapter's AI competition.
+  - date: 2017-03-29
+    title: New member application deadline
+    description: Paper applications were due in the Lally 207 mailbox by noon.
+  - date: 2017-03-29
+    title: NP Compete qualifiers close
+    description: Last day to qualify for the chapter's semester AI competition.
+  - date: 2017-03-26
+    title: Programming Competition
+    description: The chapter's spring programming competition.
+  - date: 2017-03-22
+    title: Java 8
+    description: A session on Java 8.
+  - date: 2017-02-22
+    title: How to Make an AI
+    description: The basics of writing an AI for the NP Compete competition.
+  - date: 2017-02-15
+    title: NP Compete qualifiers open
+    description: The chapter's AI competition, grown out of the previous semester's AI Comp, opened for entries.
+  - date: 2017-02-08
+    kind: io
+    title: "I/O: Search Engine Basics with Bloomberg"
+    description: An introduction to how search engines work, presented with Bloomberg.
+    location: Amos Eaton 214
+    time: 6:00 pm
+  - date: 2017-02-01
+    title: Interview Prep
+    description: Interview practice before the career fair.
+  - date: 2016-11-20
+    title: AI Comp
+    description: Students wrote bots to compete against each other in a game.
+  - date: 2016-10-31
+    title: New member application deadline
+    description: Paper applications were due in the Lally 207 mailbox by noon.
+  - date: 2016-10-23
+    title: Programming Competition
+    description: Open to all students at Rensselaer. Past sponsors include Microsoft, Bloomberg, Palantir, and Google.
+  - date: 2016-10-19
+    kind: io
+    title: "I/O: Apache Spark"
+    description: An introduction to Apache Spark for distributed systems and cloud computing.
+  - date: 2016-09-28
+    title: Interview Prep
+    description: Interview practice and resume help before the career fair.
+    location: Amos Eaton 117
+  - date: 2016-09-21
+    kind: io
+    title: "I/O: Deep Learning"
+    description: An introduction to deep learning for students curious about artificial intelligence and machine learning.
+    location: Amos Eaton 214
+    time: 6:30 pm
+  - date: 2015-12-09
+    kind: io
+    title: "I/O: Deep Learning"
+    description: An introduction to deep learning for students curious about artificial intelligence and machine learning.
+    time: 6:30 pm
+  - date: 2015-11-02
+    title: New member application deadline
+    description: Paper applications were due in the Lally 207 mailbox by noon.
+  # Date as printed on the old I/O page, which lists it between talks from early 2015.
+  - date: 2015-10-01
+    kind: io
+    title: "I/O: Grad School Basics"
+    description: Elsa Gonsiorowski talked about what to expect from graduate school, how to apply, and her own decision to go.
+  # The old I/O page lists two talks on this date. Kept as printed.
+  - date: 2015-04-24
+    kind: io
+    title: "I/O: JavaScript and Node.js"
+    description: Josh Goldberg gave an introduction to JavaScript and Node.js for newcomers to the language.
+    location: Lally 102
+    time: 6:00 pm
+  - date: 2015-04-24
+    kind: io
+    title: "I/O: Ruby Development"
+    description: The basics of Ruby development.
+  - date: 2015-04-03
+    kind: io
+    title: "I/O: Web Exploitation"
+    description: A hands-on introduction to web exploitation, run with RPISEC.
+    location: DCC 324
+    time: 5:00 pm
+  - date: 2015-03-30
+    title: New member application deadline
+    description: Paper applications were due in the Lally 207 mailbox by noon.
+  - date: 2015-03-14
+    title: Pi Day
+    description: The chapter celebrated 3.14.15 by selling pies at Genericon.
+  - date: 2015-03-01
+    title: Programming Competition
+    description: Open to all students at Rensselaer. Past sponsors include Microsoft, Bloomberg, Palantir, and Google.
+  - date: 2015-02-20
+    kind: io
+    title: "I/O: Google Go"
+    description: An introduction to Go, an open source systems language with garbage collection, type safety, and a focus on concurrency.
+  - date: 2015-02-11
+    title: Career Fair resume book
+    description: Active members submitted resumes to the chapter's resume book, handed out at the career fair.
+  - date: 2014-11-13
+    title: Movie Night
+    description: Members watched WarGames.
+  - date: 2014-04-07
+    title: Membership applications due
+    description: Applications were due at noon.
+  - date: 2014-04-06
+    title: Programming Competition
+    description: Students competed for prizes including an iPad, a Nexus 7, and a PlayStation 3.
+  - date: 2014-04-01
+    title: Information meeting for prospective members
+    description: An information session about UPE and how to apply, followed by the regular weekly meeting.
+  - date: 2014-02-20
+    kind: io
+    title: "I/O: Android Development"
+    description: The basics of Android app development.
+  - date: 2012-10-24
+    title: Open Source Software Festival
+    description: Short talks on open source software and a poster session featuring projects by Rensselaer students.
