@@ -47,5 +47,15 @@
       <p><a href="https://info.rpi.edu/statement-of-accessibility">Rensselaer Statement of Accessibility</a></p>
     </div>
   </footer>
+  <script>
+    // The build fixes "today" once. Check it again in the browser so deadlines and events stay right between deploys.
+    // The date is taken in the chapter's time zone, the same as src/_data/build.js, so every visitor sees the same day.
+    {
+      const p = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date()).map((x) => [x.type, x.value]));
+      const today = `${p.year}-${p.month}-${p.day}`;
+      for (const el of document.querySelectorAll("[data-show-until]")) el.hidden = el.dataset.showUntil < today;
+      for (const el of document.querySelectorAll("[data-show-after]")) el.hidden = el.dataset.showAfter >= today;
+    }
+  </script>
 </body>
 </html>
