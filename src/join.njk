@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: Join
+---
+{% import "macros.njk" as m with context %}
+<h1>Join UPE</h1>
+<p>The chapter accepts new members each semester. Most members are juniors, seniors, and graduate students.</p>
+
+<h2>Application status</h2>
+{{ m.membershipStatus() }}
+
+<h2>Requirements</h2>
+<p>Candidates are judged mainly on their academic record. UPE's general requirements are:</p>
+<ul>
+  {% for r in membership.requirements %}<li>{{ r }}</li>
+  {% endfor %}
+</ul>
+<p>Read the full <a href="{{ membership.national_requirements_url }}">membership requirements on the UPE international website</a> and the <a href="{{ chapter.documents.constitution }}">chapter constitution (Google Doc)</a>.</p>
+{{ m.stale(membership.verified) }}

@@ -1,0 +1,51 @@
+{% import "macros.njk" as m with context %}
+{% set nav = [
+  ["/", "Home"], ["/about/", "About"], ["/people/", "People"], ["/events/", "Events"],
+  ["/tutoring/", "Tutoring"], ["/join/", "Join"], ["/photos/", "Photos"]
+] %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} | {{ chapter.short_name }}</title>
+  <meta name="description" content="{{ description or chapter.tagline }}">
+  <link rel="icon" href="{{ '/assets/img/upe-key.png' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/site.css' | url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | url }}">
+        <img src="{{ '/assets/img/upe-key.png' | url }}" alt="" width="30" height="40">
+        <span class="brand-text">
+          <span class="brand-name">Upsilon Pi Epsilon</span>
+          <span class="brand-sub">{{ chapter.institution }}</span>
+        </span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          {% for href, label in nav %}
+          <li><a href="{{ href | url }}"{% if page.url == href %} aria-current="page"{% endif %}>{{ label }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap" tabindex="-1">
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-name">{{ chapter.name }}</p>
+      <ul class="inline-list">
+        {% for s in chapter.social %}<li><a href="{{ s.url }}">{{ s.label }}</a></li>
+        {% endfor %}
+      </ul>
+      <p>Something wrong or out of date? {{ m.contact(true) }}.</p>
+      <p><a href="https://info.rpi.edu/statement-of-accessibility">Rensselaer Statement of Accessibility</a></p>
+    </div>
+  </footer>
+</body>
+</html>

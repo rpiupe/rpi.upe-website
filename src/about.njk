@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: About
+---
+{% import "macros.njk" as m with context %}
+<h1>About UPE</h1>
+
+<p>Upsilon Pi Epsilon is the first and only international honor society for the computing and information disciplines. It recognizes academic excellence among undergraduate and graduate students. UPE is endorsed by the two largest computing organizations in the world, the <a href="https://www.acm.org/">Association for Computing Machinery (ACM)</a> and the <a href="https://www.computer.org/">IEEE Computer Society</a>. It is a member of the <a href="https://www.achshonor.org/">Association of College Honor Societies</a>. Learn more on the <a href="https://upe.acm.org/">UPE international website</a>.</p>
+
+<h2>Mission</h2>
+<p>UPE recognizes academic excellence in the computing and information disciplines. It does this through programs that:</p>
+<ul>
+  <li>Recognize students for outstanding academic achievement in computing, in the context of a broad education and their responsibilities to society.</li>
+  <li>Support the personal and professional growth of members through scholarships and other creative work.</li>
+  <li>Build partnerships with organizations that support high-quality education in computing.</li>
+  <li>Look for new places to extend membership and chapter activities.</li>
+</ul>
+
+<h2>History</h2>
+<p>UPE was founded at Texas A&amp;M University in 1967. It now has chapters at colleges and universities in North America and overseas.</p>
+<p>The Rensselaer chapter has grown again in recent years. Members turn over quickly, so the chapter works to keep long-term plans going from one class to the next.</p>
+
+<h2>Dr. Robert P. Ingalls Award</h2>
+<p>In 2008 the chapter created the Dr. Robert P. Ingalls Award. It recognizes a graduating member for dedication and contributions to the society and its mission. The award is not given every year. Recipients are listed on a plaque in the UPE display case in the Lally Building.</p>
+<ul class="award-list">
+  {% for a in awards.ingalls %}<li><span class="award-year">{{ a.year }}</span> {{ a.name }}</li>
+  {% endfor %}
+</ul>
+{{ m.stale(awards.verified) }}
+
+<h2>Governing documents</h2>
+<ul>
+  <li><a href="{{ chapter.documents.constitution }}">Chapter constitution (Google Doc)</a></li>
+  <li><a href="{{ chapter.documents.bylaws }}">Chapter by-laws (Google Doc)</a></li>
+</ul>

@@ -1,0 +1,16 @@
+---
+layout: base.njk
+title: Photos
+---
+<h1>Photos</h1>
+<p>Moments from chapter events over the years.</p>
+<ul class="photo-grid">
+  {% for p in photos.photos %}
+  <li>
+    <figure>
+      <img src="{{ ('/assets/img/photos/' + p.file) | url }}" alt="{{ p.alt }}" width="{{ p.width }}" height="{{ p.height }}" loading="lazy" decoding="async">
+      <figcaption>{{ p.caption }}</figcaption>
+    </figure>
+  </li>
+  {% endfor %}
+</ul>
